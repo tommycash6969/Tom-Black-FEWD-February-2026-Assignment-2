@@ -2,7 +2,7 @@
 Tom Black FEWD-February-2026- Assignment 2
 <br>
 Repository includes index.html and README.md and Images and Video folders respectively.
-# FreeLivingDesigns Portfolio - README
+# FreeLivingDesigns Portfolio - README.md file
 
 ## Overview
 This project is a personal portfolio webpage built as a single static HTML file: `index.html`.
@@ -35,7 +35,7 @@ The file starts with standard HTML5 setup:
 
 ### 2. Embedded CSS (`<style>`)
 The CSS is written directly inside `index.html`.
-    I used common HTML5 practises to style my index.html project with best practices.
+<br>I used common HTML5 practises to style my index.html project with best practices.
 Key style blocks:
 - `body`: Sets base spacing, typography, and centered page alignment.
 - `.logo`: Controls logo size and spacing.
@@ -82,5 +82,7 @@ Contains:
 ## Notes
 - This is a static front-end project (no JavaScript file and no build step required).
 - All styling is currently embedded in `index.html`; I shall be moving styles to a separate `style.css` to improve maintainability as the project grows.
+<br>
 Regards
+<br>
 Tom Black
