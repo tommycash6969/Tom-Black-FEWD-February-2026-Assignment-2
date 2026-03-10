@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body { margin: 0; padding: 20px; font-family: Arial; text-align: center;}
+.logo { max-width: 150px; height: auto; margin: 50px auto;}
+
+video {
+  width: 100%;
+  height: auto;
+  max-width: 600px;
+}
+
+.profile-image {
+  max-width: 300px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  margin: 0px auto;
+  display: block;
+}
+
+p {
+  text-align: center;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+main {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+header {
+    text-align: match-parent;
+    line-height: 1.6;
+}
+
+footer {
+  text-align: center;
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+footer p {
+  max-width: 100%;
+}
+
+</style>
+  <title>FreeLivingDesigns Portfolio Site</title>
+</head>
+<body>
+<!-- site logo -->
+<img src="images/logo.png" alt="FreeLivingDesigns Logo" class="logo">
+  <!-- Header with site title and navigation -->
+  <header>
+    <h1>Tom Black <br>
+        Front-End Web Designer</h1>
+    <nav>
+      <ul style="list-style: none; padding: 0; margin: 0 auto; display: flex; justify-content: center; gap: 20px;">
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- About Me section -->
+  <section id="about">
+  <h2>About Me</h2>
+        <p>Hi! My name is Tom Black and I am a front-end web developer. I love front-end web design and am passionate about WordPress. My main focus within front-end is to create modern, responsive web experiences. I specialize in HTML, CSS, and JavaScript, and I strive to make clean, user-friendly interfaces.</p>
+        <img src="images/tom.jpg" alt="Tom Black, a front-end web designer with glasses and reddish-brown hair, sitting at a table in a modern office with geometric wall panels. He wears a light beige sweater over a white collared shirt and has a composed, professional expression. A red and white checkered board is visible on the table in front of him. Text reading TOM BLACK appears to the right of his image." class="profile-image">
+
+  </section>
+    <!-- Portfolio section -->
+<section id="portfolio">
+<h2>Portfolio</h2>
+
+<!-- video project section -->
+<figure>
+    <video controls loop muted>
+                <source src="videos/reskin.mp4" type="video/mp4">
+                Your browser does not support video playback.
+              </video> 
+               <figcaption>Above Showcases a WordPress site, A walkthrough of the Reskin WordPress site, highlighting integrated Google reviews, interactive treatment sliders, and an e-commerce section for branded products. I used a child theme to make this website and am eager to learn more about CSS styling to make the website more interactive.</figcaption>
+    </figure>
+    </section>
+  </main>
+  
+  
+
+
+  <!-- Footer section -->
+  <footer>
+    <p>&copy; 2026 FreeLivingDesigns. All rights reserved.</p>
+  </footer>
+</body>
+</html>
