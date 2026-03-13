@@ -5,6 +5,7 @@
   --button-color: #FF8066;
   --text-color: #FFFFFF;
   --text-on-light: #1E2230;
+  --text-on-button: #1E2230;
   --focus-color: #FFE082;
 }
 
@@ -70,9 +71,16 @@ nav a {
   padding: 10px 16px;
   border-radius: 8px;
   background-color: var(--button-color);
-  color: var(--text-color);
+  color: var(--text-on-button);
   font-weight: 600;
   transition: filter 0.2s ease;
+}
+
+/* Fallback for older browsers without flex gap support. */
+@supports not (gap: 1rem) {
+  nav li + li {
+    margin-left: 14px;
+  }
 }
 
 nav a:hover,
@@ -151,7 +159,7 @@ input[type="submit"],
 .btn,
 .button {
   background-color: var(--button-color);
-  color: var(--text-color);
+  color: var(--text-on-button);
   border: none;
   border-radius: 8px;
   padding: 10px 16px;
