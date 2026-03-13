@@ -1,88 +1,70 @@
-# Tom-Black-FEWD-February-2026
-Tom Black FEWD-February-2026- Assignment 2
-<br>
-Repository includes index.html and README.md and Images and Video folders respectively.
-# FreeLivingDesigns Portfolio - README.md file
+# FreeLivingDesigns Portfolio
+Tom Black - FEWD - February 2026 - Assignment 3
+## Project Overview
+This repository contains my portfolio website for FEWD Assignment 3. The project is built with semantic HTML in `index.html` and a separate external stylesheet in `style.css`.
 
-## Overview
-This project is a personal portfolio webpage built as a single static HTML file: `index.html`.
-
-The page introduces Tom Black as a front-end web designer and includes:
-- A logo and header section
-    I included the logo of my business FreeLivingDesigns as an image using image source folder Images with respective file logo.png
+The portfolio presents:
+- A branded header with navigation
 - An About Me section
-    A short introduction of myslef with an emphasis on my WordPress efficiencies and future aspirations of skills I wish to learn in this course.
-- A Portfolio section with a project video
-    The Portfolio section starts with a heading 2 Portfolio, leading to a video file source from the videos folder named reskin.mp4
-    The video highlights a previous project of mine using WordPress that showcases a "Treatments" slider, google reviews, header images and footer.
-- A footer with copyright text
-    My footer is simply the copyright symbol with FreeLivingDesigns company name and the date of copywrite.
+- A Portfolio section with two WordPress showcase videos
+- A footer with copyright information
 
-## Project Structure
-- `index.html`: Main webpage markup and embedded CSS styles.
-- `images/`: Stores image assets (`logo.png`, `tom.jpg`).
-- `videos/`: Stores video assets (`reskin.mp4`).
+## Purpose Of The Visual Styling
+The styling choices were made to create a modern, confident, and professional portfolio identity with a ctreative style reflecting my personality through my work.
 
-## Main Sections in `index.html`
+- Colour:
+  I used CSS custom properties to keep the colour system consistent across the page. The deep charcoal background (`--main-bg`) adds contrast and seriousness, the hero purple (`--hero-color`) creates a strong visual anchor, and the coral button colour (`--button-color`) gives clear call-to-action emphasis. I decided to use these colours and the "Dust" pallette to keep the colour scheme in a collective and collected style. I wanted to stay within one pallette to ensure all colours worked well together. I used ColorSpace as my reference for the colour pallette theme. I went for a Off Black text colour to give a subtle touch on the eye when reading the paragraph sections.
 
-### 1. Document Setup (`<!DOCTYPE html>` and `<head>`)
-The file starts with standard HTML5 setup:
-- `<!DOCTYPE html>` declares HTML5.
-- `<html lang="en">` sets the language to English.
-- `<meta charset="UTF-8">` supports standard text encoding.
-- `<meta name="viewport" ...>` improves responsiveness on mobile devices.
-- `<title>` sets the browser tab title to **FreeLivingDesigns Portfolio Site**.
+- Typography:
+  I used a clean sans-serif style for clarity and readability. Text spacing and line-height were set to improve scanning and reading, especially in section descriptions and captions. Arial was my main font as I wanted it to be uniform with all browsers without needing downloaded or external fonts that could give errors or faulty outputs later in my project.
 
-### 2. Embedded CSS (`<style>`)
-The CSS is written directly inside `index.html`.
-<br>I used common HTML5 practises to style my index.html project with best practices.
-Key style blocks:
-- `body`: Sets base spacing, typography, and centered page alignment.
-- `.logo`: Controls logo size and spacing.
-- `video`: Makes video responsive with `width: 100%` and `max-width: 600px`.
-- `.profile-image`: Styles the profile image with rounded corners and shadow.
-- `p`: Centers paragraph text and limits line width for readability.
-- `main`: Limits content width to keep layout clean.
-- `header`: Controls heading and navigation text alignment.
-- `footer` and `footer p`: Center footer content and keep it full-width inside footer.
+  - Layout:
+  The page uses a centered, single-column structure with max-width containers, rounded content panels, and responsive media sizing. This keeps the content focused, avoids visual clutter, and scales well on smaller screens. I needed the content to work well on mobile devices and thus used this structure to avoid an outdated look on mobile and tablet devices. I like the rounded corners and believe they soften the entire look of the project, matching that of the buttons.
 
-### 3. Header Section (`<header>`)
-Contains:
-- Main heading (`<h1>`) with name and role:
-  - Tom Black
-  - Front-End Web Designer
-- Navigation menu (`<nav>`) with anchor links:
-  - `#about`
-  - `#portfolio`
+## Look And Feel + Brand Alignment
+The look and feel I aimed for was clean, approachable, and credible, with a balance of creativity and professionalism.
 
-### 4. About Me Section (`<section id="about">`)
-Contains:
-- Section title (`<h2>About Me</h2>`)
-- Intro paragraph describing background, skills, and interests
-- Profile image (`images/tom.jpg`) with descriptive alt text
+These decisions reflect the FreeLivingDesigns brand by:
+- Using a clear visual hierarchy to communicate confidence and structure
+- Applying bold accent colours to support a modern design personality
+- Keeping navigation and content straightforward so visitors can quickly understand my skills and project examples.
 
-### 5. Portfolio Section (`<section id="portfolio">`)
-Contains:
-- Section title (`<h2>Portfolio</h2>`)
-- A `<figure>` element with:
-  - `<video>` player using `controls`, `loop`, and `muted`
-  - `<source>` linked to `videos/reskin.mp4`
-  - Fallback text for unsupported browsers
-  - `<figcaption>` describing the showcased WordPress project
+## Changes Reflected In This Version
+Compared with the earlier draft, this version now reflects the updated implementation:
+- CSS has been moved out of HTML and into `style.css`
+- A reusable colour system has been introduced with CSS variables
+- Navigation and interactive controls have clearer hover/focus behavior
+- A skip link was added for keyboard and accessibility support
+- Responsive spacing and section padding were refined for mobile screens
+- Portfolio now includes two video showcase entries, namely Reskin and Sunglideonline
+- Two new headings for each portfolio section were added.
+- a new backgroundless logo was added and it looks nice on the background colour chosen. 
+- I initially started with white text for headings and paragraphs but saw the AA and AAA test failed so went for the dark Grey(off black mentioned earlier).
 
-### 6. Footer Section (`<footer>`)
-Contains:
-- Copyright line:
-  - `© 2026 FreeLivingDesigns. All rights reserved.`
+## CSS Validation Process
+I validated the stylesheet using:
+-  The W3C CSS Validation Service.
+- A standards-based CSS validator workflow (syntax and rules review)
+- Manual browser checks for responsive layout and focus visibility
+- Constant checking in browser for errors and reviewing AA and AAA verification tools to ensure the projects accessibility for all browsers and users with visual or other imparements.
 
-## How to Run
-1. Open `index.html` in any web browser.
-2. Confirm that the `images/` and `videos/` folders remain in the same project root so assets load correctly.
+During validation, I confirmed:
+- No CSS syntax errors in `style.css`
+- Consistent variable usage and fallback behavior
+- Readable contrast and visible focus states for keyboard users
 
-## Notes
-- This is a static front-end project (no JavaScript file and no build step required).
-- All styling is currently embedded in `index.html`; I shall be moving styles to a separate `style.css` to improve maintainability as the project grows.
-<br>
+## Reflection: Challenges, Decisions, And Learning
+One challenge was balancing visual style with usability. Strong colours can look good but still need enough contrast and consistent text legibility.
+
+Key decisions I made:
+- Use CSS variables to make the palette easier to maintain
+- Keep the layout simple and centered so the portfolio content remains the focus
+- Add accessibility improvements (skip link and focus states) early rather than as an afterthought
+
+What I learned from styling and validation:
+- Separating CSS into its own file improves maintainability and makes iteration faster
+- Validation is not just about syntax; it also helps catch user-experience issues
+- Small responsive and accessibility adjustments can make a big difference to the overall quality of a portfolio site.
+
 Regards
-<br>
 Tom Black
