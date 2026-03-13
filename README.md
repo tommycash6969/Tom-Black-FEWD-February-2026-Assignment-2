@@ -1,7 +1,7 @@
 # FreeLivingDesigns Portfolio
 Tom Black - FEWD - February 2026 - Assignment 3
 ## Project Overview
-This repository contains my portfolio website for FEWD Assignment 3. The project is built with semantic HTML in `index.html` and a separate external stylesheet in `style.css`.
+This repository contains my portfolio website for FEWD Assignment 3. The project is built with semantic HTML in `index.html` and a separate external stylesheet in `styles.css`.
 
 The portfolio presents:
 - A branded header with navigation
@@ -31,7 +31,7 @@ These decisions reflect the FreeLivingDesigns brand by:
 
 ## Changes Reflected In This Version
 Compared with the earlier draft, this version now reflects the updated implementation:
-- CSS has been moved out of HTML and into `style.css`
+- CSS has been moved out of HTML and into `styles.css`
 - A reusable colour system has been introduced with CSS variables
 - Navigation and interactive controls have clearer hover/focus behavior
 - A skip link was added for keyboard and accessibility support
@@ -49,7 +49,7 @@ I validated the stylesheet using:
 - Constant checking in browser for errors and reviewing AA and AAA verification tools to ensure the projects accessibility for all browsers and users with visual or other imparements.
 
 During validation, I confirmed:
-- No CSS syntax errors in `style.css`
+- No CSS syntax errors in `styles.css`
 - Consistent variable usage and fallback behavior
 - Readable contrast and visible focus states for keyboard users
 
