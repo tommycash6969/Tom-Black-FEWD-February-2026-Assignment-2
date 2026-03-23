@@ -11,6 +11,8 @@
 </head>
 <body id="top">
 <a class="skip-link" href="#main-content">Skip to main content</a>
+<span id="menu-closed" class="menu-state" aria-hidden="true"></span>
+<span id="menu-open" class="menu-state" aria-hidden="true"></span>
 <!-- site logo -->
 <img src="images/freelivinglogo.png" alt="FreeLivingDesigns Logo" class="logo" decoding="async">
   
@@ -19,9 +21,15 @@
     <h1>Tom Black <br>
         Front-End Web Designer</h1>
     <nav aria-label="Primary">
-      <ul>
-        <li><a href="#about">About Me</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
+      <ul class="nav-list">
+        <li class="nav-dropdown">
+          <a class="menu-toggle menu-toggle-open" href="#menu-open" aria-haspopup="true">Menu</a>
+          <a class="menu-toggle menu-toggle-close" href="#menu-closed" aria-haspopup="true">Menu</a>
+          <ul class="dropdown-list">
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+          </ul>
+        </li>
       </ul>
     </nav>
   </header>

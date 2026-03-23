@@ -122,7 +122,15 @@ footer {
   color: var(--text-color);
 }
 
-nav ul {
+.menu-state {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+}
+
+nav > ul {
   list-style: none;
   padding: 0;
   margin: 0 auto;
@@ -132,7 +140,8 @@ nav ul {
   flex-wrap: nowrap;
 }
 
-nav a {
+nav a,
+.menu-toggle {
   display: inline-block;
   text-decoration: none;
   padding: 8px 14px;
@@ -149,28 +158,102 @@ nav a {
   transition: filter 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+.nav-dropdown {
+  width: 180px;
+  position: relative;
+}
+
+.menu-toggle {
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+}
+
+.menu-toggle-close {
+  display: none;
+}
+
+.menu-toggle::after {
+  content: " \25be";
+  font-size: 0.78em;
+}
+
+#menu-open:target ~ header .menu-toggle::after {
+  content: " \25b4";
+}
+
+#menu-open:target ~ header .menu-toggle-open {
+  display: none;
+}
+
+#menu-open:target ~ header .menu-toggle-close {
+  display: inline-block;
+}
+
+.dropdown-list {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  min-width: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: rgba(75, 68, 83, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  box-shadow: 0 14px 26px rgba(0, 0, 0, 0.35);
+  z-index: 50;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-6px);
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0s linear 0.18s;
+}
+
+#menu-open:target ~ header .dropdown-list {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: initial;
+  transform: translateY(0);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.dropdown-list a {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+}
+
 /* Fallback for older browsers without flex gap support. */
 @supports not (gap: 1rem) {
-  nav li + li {
+  nav > ul > li + li {
     margin-left: 14px;
   }
 }
 
 nav a:hover,
-nav a:focus-visible {
+nav a:focus-visible,
+.menu-toggle:hover,
+.menu-toggle:focus-visible {
   filter: brightness(1.04);
   transform: translateY(-3px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.38);
 }
 
-nav a:active {
+nav a:active,
+.menu-toggle:active {
   transform: translateY(-1px);
 }
 
 a:focus-visible,
 button:focus-visible,
 input[type="button"]:focus-visible,
-input[type="submit"]:focus-visible {
+input[type="submit"]:focus-visible,
+.menu-toggle:focus-visible {
   outline: 3px solid var(--focus-color);
   outline-offset: 2px;
 }

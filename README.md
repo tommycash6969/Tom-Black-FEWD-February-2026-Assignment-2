@@ -2,7 +2,6 @@
 **Tom Black — FEWD — February 2026 — Assignment 4**
 
 ---
-Tom Black — FEWD — February 2026 — Assignment 4
 
 ## About This Project
 
@@ -25,7 +24,9 @@ The site presents:
 
 This submission demonstrates:
 
- Mobile-first CSS structure | Base styles written for mobile, enhanced upward with `min-width` queries towards wide screens|
+| Requirement | Implementation |
+|---|---|
+| Mobile-first CSS structure | Base styles written for mobile, enhanced upward with `min-width` queries towards wide screens |
 | Media queries at multiple breakpoints | 640px (tablet) and 900px (desktop) breakpoints |
 | Flexbox for layout | Navigation and About section |
 | CSS Grid for layout | Portfolio project card grid |
@@ -33,7 +34,7 @@ This submission demonstrates:
 | CSS transitions and animation | fadeIn, card hover, nav hover, scroll-to-top, feedback overlay |
 | CSS validation | Validated with W3C CSS Validation Service — no CSS errors |
 | HTML validation | Validated with W3C Markup Validation Service — no HTML errors |
-| README documentation
+| README documentation | Final documentation and reflection included |
 
 ---
 
@@ -67,7 +68,7 @@ The reason I chose mobile-first is that most portfolio visitors are on mobile. D
 ## Design Decisions for Navigation, Structure, and Interactivity
 
 ### Navigation
-I styled the nav links as custom pill-shaped buttons using a gradient fill, border, and layered shadow rather than a plain underlined list. The Oswald heading font with uppercase lettering and letter-spacing gives the nav a distinct brand identity separate from the body text. On hover the buttons lift with `translateY` and brighten slightly, and on active press they lower. This creates a tactile, professional feel. Due to the lack of multiple menu items I never grouped them under a "menu" button.
+I styled the nav links as custom pill-shaped buttons using a gradient fill, border, and layered shadow rather than a plain underlined list. The Oswald heading font with uppercase lettering and letter-spacing gives the nav a distinct brand identity separate from the body text. On hover the buttons lift with `translateY` and brighten slightly, and on active press they lower. This creates a tactile, professional feel. In the final version, I added a dedicated dropdown Menu button that contains About Me and Portfolio, with matching button size and styling for consistency. The final solution opens on click, stays visible while the user chooses an option, and closes automatically after a section link is selected.
 
 ### Structure
 The page uses semantic HTML throughout. Portfolio projects are wrapped in `<article>` elements inside a grid container, the About section uses `<section>`, and each video is inside a `<figure>` with a `<figcaption>`. This makes the page accessible to assistive technologies and reflects professional front-end standards.
@@ -116,6 +117,7 @@ Accessibility was considered throughout and not added as an afterthought:
 - After the animation, a feedback textarea form appears for the visitor to write a message
 - On submission, the form opens the visitor's email client pre-addressed to `freelivingdesigns@gmail.com`
 - Implemented entirely in CSS using `:target` = no JavaScript needed.
+- Because this solution uses `mailto:`, submission depends on the visitor having a desktop mail client configured as their system default. During testing, this worked reliably with Outlook, but browser-only email setups such as Gmail may not handle the form in the same way. This is a known limitation of `mailto:` when no JavaScript or backend form handler is used.
 
 ---
 
@@ -125,7 +127,10 @@ Accessibility was considered throughout and not added as an afterthought:
 Early testing showed the native fullscreen button was unresponsive when viewing the file in code editors built-in browser. This was not a CSS or HTML problem — it was a restriction of the embedded webview environment. Opening the file in Chrome resolved it. I learned to always test media in a real browser from the start.
 
 **Keeping navigation on one line on mobile:**
-My first attempt used `flex-wrap: wrap` which caused the nav links to stack on small screens. I switched to `flex-wrap: nowrap` on mobile and reduced font size and padding at the base level, restoring them at the 640px breakpoint. This keeps the nav horizontal on all screen sizes without needing a hamburger menu or menu buttton leading to a additional click thru for menu to show up.
+My first attempt used `flex-wrap: wrap` which caused the nav links to stack on small screens. I switched to `flex-wrap: nowrap` on mobile and reduced font size and padding at the base level, restoring them at the 640px breakpoint. This keeps the nav horizontal on all screen sizes.
+
+**Menu jump issue and final dropdown behavior:**
+I initially tested a hash-based menu opener that caused the page to jump when Menu was clicked because the browser tried to scroll to the target position. I also tested a hover-style version, but that made the submenu harder to use because it could disappear while moving the mouse downward. The final solution uses a CSS-only target pattern linked to a hidden fixed-position state element, so clicking Menu opens the dropdown in place without scrolling the page, and selecting About Me or Portfolio changes the target to that section and closes the menu automatically.
 
 **CSS-only overlay forms:**
 Implementing the feedback modals without JavaScript required the `:target` pattern to show and hide overlays via anchor link clicks. I also used CSS animation delays to show the gratitude message first, then reveal the feedback textarea one second later. This required careful layering of `opacity`, `visibility`, and `pointer-events` to work reliably across browsers.
@@ -140,7 +145,7 @@ The stylesheet was validated using the W3C CSS Validation Service:
 https://jigsaw.w3.org/css-validator/
 
 Result: **No CSS syntax errors found in styles.css**
-added visual images of W3C CCS Validation images in footer.
+Added visual images of W3C CSS Validation badges in footer.
 
 **HTML Validation**
 
@@ -153,7 +158,7 @@ Result: **No HTML errors found in index.html**
 
 ## Final Reflection
 
-This assignment helped me improve how I approach front-end development from a mobile-first perspective. I became more confident using Flexbox and CSS Grid together, structuring semantic HTML, and creating interactive features using only CSS. I am most proud of turning the site into a cleaner, more professional portfolio with stronger accessibility and responsive behavior across screen sizes. Going forward, I want to keep refining visual polish, test even earlier across browsers, and continue building more advanced interactions while keeping performance and usability at the center of my work. I am excited to submit this work as it reflects a true passion and understanding of html and CSS in action for the marker to exoerience thru my project.
+This assignment helped me improve how I approach front-end development from a mobile-first perspective. I became more confident using Flexbox and CSS Grid together, structuring semantic HTML, and creating interactive features using only CSS. I am most proud of turning the site into a cleaner, more professional portfolio with stronger accessibility and responsive behavior across screen sizes. Going forward, I want to keep refining visual polish, test even earlier across browsers, and continue building more advanced interactions while keeping performance and usability at the center of my work. I am excited to submit this work as it reflects a true passion and understanding of html and CSS in action for the marker to experience thru my project.
 
 ## Final Submission Checklist
 
