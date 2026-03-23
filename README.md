@@ -1,70 +1,177 @@
 # FreeLivingDesigns Portfolio
-Tom Black - FEWD - February 2026 - Assignment 3
-## Project Overview
-This repository contains my portfolio website for FEWD Assignment 3. The project is built with semantic HTML in `index.html` and a separate external stylesheet in `styles.css`.
+**Tom Black — FEWD — February 2026 — Assignment 4**
 
-The portfolio presents:
-- A branded header with navigation
-- An About Me section
-- A Portfolio section with two WordPress showcase videos
-- A footer with copyright information
+---
+Tom Black — FEWD — February 2026 — Assignment 4
 
-## Purpose Of The Visual Styling
-The styling choices were made to create a modern, confident, and professional portfolio identity with a ctreative style reflecting my personality through my work.
+## About This Project
 
-- Colour:
-  I used CSS custom properties to keep the colour system consistent across the page. The deep charcoal background (`--main-bg`) adds contrast and seriousness, the hero purple (`--hero-color`) creates a strong visual anchor, and the coral button colour (`--button-color`) gives clear call-to-action emphasis. I decided to use these colours and the "Dust" pallette to keep the colour scheme in a collective and collected style. I wanted to stay within one pallette to ensure all colours worked well together. I used ColorSpace as my reference for the colour pallette theme. I went for a Off Black text colour to give a subtle touch on the eye when reading the paragraph sections.
+This project is a responsive portfolio website built with semantic HTML and external CSS code style sheet. It was created for Assignment 4 and builds on the foundation of Assignment 3, expanding it with advanced CSS layout techniques, responsive design, and interactive features.
 
-- Typography:
-  I used a clean sans-serif style for clarity and readability. Text spacing and line-height were set to improve scanning and reading, especially in section descriptions and captions. Arial was my main font as I wanted it to be uniform with all browsers without needing downloaded or external fonts that could give errors or faulty outputs later in my project.
+Core files:
+- `index.html` — all page content and structure
+- `styles.css` — all styling, layout, animation, and responsive rules
 
-  - Layout:
-  The page uses a centered, single-column structure with max-width containers, rounded content panels, and responsive media sizing. This keeps the content focused, avoids visual clutter, and scales well on smaller screens. I needed the content to work well on mobile devices and thus used this structure to avoid an outdated look on mobile and tablet devices. I like the rounded corners and believe they soften the entire look of the project, matching that of the buttons.
+The site presents:
+- A branded header with custom navigation
+- An About Me section with a profile image
+- A portfolio section with two featured WordPress project videos and thumbnails
+- A floating two-step scroll-to-top control for ease of use and accidental "top" presssing.
+- A footer with an emoji-based feedback rating and contact form overlay leading to a mailto: feature for feedback.
 
-## Look And Feel + Brand Alignment
-The look and feel I aimed for was clean, approachable, and credible, with a balance of creativity and professionalism.
+---
 
-These decisions reflect the FreeLivingDesigns brand by:
-- Using a clear visual hierarchy to communicate confidence and structure
-- Applying bold accent colours to support a modern design personality
-- Keeping navigation and content straightforward so visitors can quickly understand my skills and project examples.
+## Assessment Objectives Covered
 
-## Changes Reflected In This Version
-Compared with the earlier draft, this version now reflects the updated implementation:
-- CSS has been moved out of HTML and into `styles.css`
-- A reusable colour system has been introduced with CSS variables
-- Navigation and interactive controls have clearer hover/focus behavior
-- A skip link was added for keyboard and accessibility support
-- Responsive spacing and section padding were refined for mobile screens
-- Portfolio now includes two video showcase entries, namely Reskin and Sunglideonline
-- Two new headings for each portfolio section were added.
-- a new backgroundless logo was added and it looks nice on the background colour chosen. 
-- I initially started with white text for headings and paragraphs but saw the AA and AAA test failed so went for the dark Grey(off black mentioned earlier).
+This submission demonstrates:
 
-## CSS Validation Process
-I validated the stylesheet using:
--  The W3C CSS Validation Service.
-- A standards-based CSS validator workflow (syntax and rules review)
-- Manual browser checks for responsive layout and focus visibility
-- Constant checking in browser for errors and reviewing AA and AAA verification tools to ensure the projects accessibility for all browsers and users with visual or other imparements.
+ Mobile-first CSS structure | Base styles written for mobile, enhanced upward with `min-width` queries towards wide screens|
+| Media queries at multiple breakpoints | 640px (tablet) and 900px (desktop) breakpoints |
+| Flexbox for layout | Navigation and About section |
+| CSS Grid for layout | Portfolio project card grid |
+| Custom navigation with styled list items (menu) | Pill-shaped gradient nav buttons with hover/press states |
+| CSS transitions and animation | fadeIn, card hover, nav hover, scroll-to-top, feedback overlay |
+| CSS validation | Validated with W3C CSS Validation Service — no CSS errors |
+| HTML validation | Validated with W3C Markup Validation Service — no HTML errors |
+| README documentation
 
-During validation, I confirmed:
-- No CSS syntax errors in `styles.css`
-- Consistent variable usage and fallback behavior
-- Readable contrast and visible focus states for keyboard users
+---
 
-## Reflection: Challenges, Decisions, And Learning
-One challenge was balancing visual style with usability. Strong colours can look good but still need enough contrast and consistent text legibility.
+## How I Approached Responsiveness
 
-Key decisions I made:
-- Use CSS variables to make the palette easier to maintain
-- Keep the layout simple and centered so the portfolio content remains the focus
-- Add accessibility improvements (skip link and focus states) early rather than as an afterthought
+I used a mobile-first strategy throughout. All base styles in `styles.css` are written for small screens without any media query wrapping. I then progressively layered enhancements at two breakpoints using `min-width` queries rather than `max-width`, for the best mobile-first approach.
 
-What I learned from styling and validation:
-- Separating CSS into its own file improves maintainability and makes iteration faster
-- Validation is not just about syntax; it also helps catch user-experience issues
-- Small responsive and accessibility adjustments can make a big difference to the overall quality of a portfolio site.
+**Breakpoints and what they change:**
 
-Regards
+- **Base (all screens):** 14px body padding, single-column layout, stacked About section, fluid typography using `clamp()`, compact nav buttons that stay on one line without stacking on mobile (result buttons nexto each other on mobile)
+- **`min-width: 640px` (tablet):** body padding increases to 20px, logo size increases, section padding increases, nav buttons scale up to full size
+- **`min-width: 900px` (desktop):** About section switches from column to row layout, portfolio grid expands from one to two columns, About section goes to text and image layout and cards side buy side, with body padding increases further.
+
+The reason I chose mobile-first is that most portfolio visitors are on mobile. Designing for the smallest screen first and layering up is more intentional than trying to shrink things down from a wide desktop view.
+
+---
+
+## Where and Why I Used Flexbox and Grid
+
+**Flexbox** was the right tool anywhere the layout needed to align items along a single axis:
+
+- `nav ul` — Flex row with `justify-content: center` and `flex-wrap: nowrap` keeps navigation on one line on mobile without stacking. This was a deliberate decision to avoid a hamburger menu.
+- `#about` — Flex column on mobile (profile image below text) that switches to flex row at desktop, placing the text and image side by side. I used `flex: 1` on the text block so it fills available space while the photo stays at a fixed max width.
+
+**CSS Grid** was the right choice for the portfolio section because it manages a two-dimensional card layout cleanly:
+
+- `.portfolio-grid` — `grid-template-columns: 1fr` stacks cards on mobile, switching to `1fr 1fr` at desktop for an equal two-column layout. Using Grid here meant I did not need to manually calculate widths, margins, or use float clearing, allowing for a seamless duel coloumn layout of PC vs. Mobile (stacxked).
+
+---
+
+## Design Decisions for Navigation, Structure, and Interactivity
+
+### Navigation
+I styled the nav links as custom pill-shaped buttons using a gradient fill, border, and layered shadow rather than a plain underlined list. The Oswald heading font with uppercase lettering and letter-spacing gives the nav a distinct brand identity separate from the body text. On hover the buttons lift with `translateY` and brighten slightly, and on active press they lower. This creates a tactile, professional feel. Due to the lack of multiple menu items I never grouped them under a "menu" button.
+
+### Structure
+The page uses semantic HTML throughout. Portfolio projects are wrapped in `<article>` elements inside a grid container, the About section uses `<section>`, and each video is inside a `<figure>` with a `<figcaption>`. This makes the page accessible to assistive technologies and reflects professional front-end standards.
+
+### Interactivity
+- `@keyframes fadeIn` — sections animate up into view on page load for a polished entrance
+- Project cards lift and gain a drop shadow on hover, making them feel like distinct interactive content blocks
+- The scroll-to-top button uses a CSS `:target` pattern to create a two-step interaction: first click reveals a green confirmation state, second click scrolls to the top. Its shape and motion styling match the navigation button system for visual consistency. This helps to avoid miss-touch to top button and actions a two step go to top function.
+- The footer feedback flow uses emoji triggers to open full-screen overlay modals, showing a gratitude animation followed by a feedback textarea form — allowing users to email me at freelivingdesigns@gmail.com using a mailto: function opening the native mail app encouraging feedback on website. I wanted to make it a counter button but could not do this successfully using only CSS. `:target`
+
+---
+
+## Typography
+
+I chose Oswald and Open Sans as a pairing from Google Fonts because they complement each other well:
+
+- **Headings:** Oswald — strong, condensed, and works well with uppercase letter-spacing for impact
+- **Body text:** Open Sans — clean, highly readable, and performs well at small sizes on mobile
+- **Fallback stack:** `'Arial Narrow', Arial` for headings and `'Segoe UI', Helvetica, Arial` for body text, covering Windows, Mac, and Linux systems
+- **Fluid sizing:** All font sizes use `clamp()` so they scale naturally between mobile and desktop without extra media query rules
+
+---
+
+## Accessibility and UX Considerations
+
+Accessibility was considered throughout and not added as an afterthought:
+
+- Skip link at the top of the page for keyboard and screen reader users
+- Visible `focus-visible` outlines with a high-contrast yellow accent (`#FFE082`) on all interactive elements
+- Semantic HTML structure: `<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<figure>`, `<figcaption>`, `<footer>`
+- `aria-label` attributes on navigation and interactive controls
+- Video poster thumbnails so content is meaningful before playback begins
+- `loading="lazy"` and `decoding="async"` on images for performance
+
+---
+
+## Video and Feedback Features
+
+**Video posters:**
+- `images/reskin-cover.png` — Reskin Aesthetics project thumbnail
+- `images/sunglide-cover.png` — Sunglide Online project thumbnail (using a fun youtube type thumbnail with me displaying the content with headings and screenshots of the video on the cover image)
+
+**Footer feedback rating:**
+- Three emoji buttons (👍 😍 🎉) allow visitors to rate the website
+- Each triggers a full-screen CSS overlay with a one-second gratitude animation
+- After the animation, a feedback textarea form appears for the visitor to write a message
+- On submission, the form opens the visitor's email client pre-addressed to `freelivingdesigns@gmail.com`
+- Implemented entirely in CSS using `:target` = no JavaScript needed.
+
+---
+
+## Challenges Faced and Ideas Tested
+
+**Video fullscreen on embedded previews:**
+Early testing showed the native fullscreen button was unresponsive when viewing the file in code editors built-in browser. This was not a CSS or HTML problem — it was a restriction of the embedded webview environment. Opening the file in Chrome resolved it. I learned to always test media in a real browser from the start.
+
+**Keeping navigation on one line on mobile:**
+My first attempt used `flex-wrap: wrap` which caused the nav links to stack on small screens. I switched to `flex-wrap: nowrap` on mobile and reduced font size and padding at the base level, restoring them at the 640px breakpoint. This keeps the nav horizontal on all screen sizes without needing a hamburger menu or menu buttton leading to a additional click thru for menu to show up.
+
+**CSS-only overlay forms:**
+Implementing the feedback modals without JavaScript required the `:target` pattern to show and hide overlays via anchor link clicks. I also used CSS animation delays to show the gratitude message first, then reveal the feedback textarea one second later. This required careful layering of `opacity`, `visibility`, and `pointer-events` to work reliably across browsers.
+
+---
+
+## Validation
+
+**CSS Validation**
+
+The stylesheet was validated using the W3C CSS Validation Service:
+https://jigsaw.w3.org/css-validator/
+
+Result: **No CSS syntax errors found in styles.css**
+added visual images of W3C CCS Validation images in footer.
+
+**HTML Validation**
+
+The page markup was validated using the W3C Markup Validation Service:
+https://validator.w3.org/
+
+Result: **No HTML errors found in index.html**
+
+---
+
+## Final Reflection
+
+This assignment helped me improve how I approach front-end development from a mobile-first perspective. I became more confident using Flexbox and CSS Grid together, structuring semantic HTML, and creating interactive features using only CSS. I am most proud of turning the site into a cleaner, more professional portfolio with stronger accessibility and responsive behavior across screen sizes. Going forward, I want to keep refining visual polish, test even earlier across browsers, and continue building more advanced interactions while keeping performance and usability at the center of my work. I am excited to submit this work as it reflects a true passion and understanding of html and CSS in action for the marker to exoerience thru my project.
+
+## Final Submission Checklist
+
+- Responsive mobile-first CSS completed with tablet and desktop breakpoints
+- Flexbox and CSS Grid both used appropriately
+- Navigation, hover states, and animation effects completed
+- Two-step scroll-to-top control completed
+- Emoji feedback overlay flow completed (CSS-only)
+- W3C CSS validation completed and evidence captured
+- W3C HTML validation completed
+- README updated to final submission version
+
+With that said, I hope you enjoy the project I present you and am very eager to jump into Javascript in the next module.
+---
+
+Kind Regards,
 Tom Black
+
+---
+
+
